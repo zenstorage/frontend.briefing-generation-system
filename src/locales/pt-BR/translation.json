@@ -1,0 +1,224 @@
+{
+  "home": {
+    "header": {
+      "brand": "BriefGen",
+      "login": "Entrar",
+      "register": "Cadastrar",
+      "pricing": "Preços"
+    },
+    "hero": {
+      "title": "Crie briefings <1>inteligentes</1>",
+      "subtitle": "Transforme suas ideias em briefings profissionais com o poder da IA. Economize tempo e crie projetos mais eficazes.",
+      "cta": "Começar Gratuitamente",
+      "cta_secondary": "Já tenho conta",
+      "stats": {
+        "briefings": "Briefings criados",
+        "companies": "Empresas confiam",
+        "satisfaction": "Satisfação"
+      },
+      "image_alt": "Briefing profissional sendo criado"
+    },
+    "features": {
+      "title": "Por que escolher o BriefGen?",
+      "subtitle": "Uma plataforma completa para criar, gerenciar e otimizar seus briefings profissionais",
+      "fast_creation": {
+        "title": "Criação Rápida",
+        "description": "Gere briefings profissionais em minutos com IA avançada"
+      },
+      "collaboration": {
+        "title": "Colaboração",
+        "description": "Trabalhe em equipe e compartilhe briefings facilmente"
+      },
+      "security": {
+        "title": "Segurança",
+        "description": "Seus dados e projetos protegidos com criptografia"
+      }
+    },
+    "benefits": {
+      "title": "Tudo que você precisa em um só lugar",
+      "items": [
+        "Templates inteligentes adaptáveis",
+        "Integração com ferramentas populares",
+        "Análise e métricas detalhadas",
+        "Suporte especializado 24/7"
+      ]
+    },
+    "cta_section": {
+      "title": "Comece agora mesmo",
+      "subtitle": "Crie sua conta gratuita e experimente o poder da IA",
+      "cta": "Criar Conta Gratuita",
+      "no_credit_card": "Sem cartão de crédito necessário"
+    },
+    "footer": {
+      "copyright": "© 2024 BriefGen. Criando briefings inteligentes para o futuro."
+    }
+  },
+  "login": {
+    "title": "Bem-vindo de volta",
+    "subtitle": "Entre na sua conta para continuar criando briefings incríveis",
+    "form_title": "Entrar",
+    "form_subtitle": "Digite suas credenciais para acessar sua conta",
+    "email_label": "E-mail",
+    "email_placeholder": "seu@email.com",
+    "password_label": "Senha",
+    "password_placeholder": "Digite sua senha",
+    "forgot_password": "Esqueceu a senha?",
+    "login_button": "Entrar",
+    "loading_button": "Entrando...",
+    "no_account": "Não tem uma conta?",
+    "register_link": "Cadastre-se gratuitamente",
+    "social_login": "Ou continue com",
+    "google_button": "Google",
+    "twitter_button": "Twitter",
+    "toasts": {
+      "validation_error": "Erro na validação",
+      "login_success_title": "Login realizado com sucesso!",
+      "login_success_description": "Bem-vindo de volta ao BriefGen.",
+      "login_error_title": "Erro ao fazer login",
+      "login_error_description": "Credenciais inválidas. Verifique seu e-mail e senha.",
+      "invalid_email": "Por favor, insira um e-mail válido.",
+      "password_required": "A senha é obrigatória."
+    }
+  },
+  "register": {
+    "title": "Crie sua conta",
+    "subtitle": "Comece a criar briefings profissionais em minutos",
+    "form_title": "Cadastrar",
+    "form_subtitle": "Preencha os dados abaixo para criar sua conta gratuita",
+    "name_label": "Nome completo",
+    "name_placeholder": "Seu nome completo",
+    "email_label": "E-mail",
+    "email_placeholder": "seu@email.com",
+    "password_label": "Senha",
+    "password_placeholder": "Crie uma senha segura",
+    "confirm_password_label": "Confirmar senha",
+    "confirm_password_placeholder": "Confirme sua senha",
+    "passwords_do_not_match": "As senhas não coincidem",
+    "terms_prefix": "Aceito os",
+    "terms_of_use": "termos de uso",
+    "terms_conjunction": "e",
+    "privacy_policy": "política de privacidade",
+    "loading_button": "Criando conta...",
+    "register_button": "Criar conta gratuita",
+    "has_account": "Já tem uma conta?",
+    "login_link": "Faça login",
+    "social_register": "Ou cadastre-se com",
+    "google_button": "Google",
+    "twitter_button": "Twitter",
+    "privacy_disclaimer": "Ao se cadastrar, você concorda que seus dados serão processados conforme nossa política de privacidade.",
+    "toasts": {
+      "validation_error": "Erro na validação",
+      "terms_required_title": "Termos obrigatórios",
+      "terms_required_description": "Você deve aceitar os termos de uso para continuar.",
+      "register_success_title": "Conta criada com sucesso!",
+      "register_success_description": "Bem-vindo ao BriefGen. Sua conta foi criada.",
+      "register_error_title": "Erro ao criar conta",
+      "register_error_description": "Ocorreu um erro ao criar sua conta. Tente novamente.",
+      "name_min_length": "O nome deve ter pelo menos 3 caracteres.",
+      "invalid_email": "Por favor, insira um e-mail válido.",
+      "password_min_length": "A senha deve ter pelo menos 6 caracteres.",
+      "passwords_do_not_match": "As senhas não coincidem."
+    }
+  },
+  "admin_login": {
+    "title": "Acesso Administrativo",
+    "subtitle": "Entre com suas credenciais de administrador",
+    "form_title": "Login de Administrador",
+    "form_subtitle": "Digite suas credenciais para acessar o painel"
+  },
+  "pricing": {
+    "title": "Planos e Preços",
+    "subtitle": "Escolha o plano que melhor se adapta às suas necessidades e comece a criar briefings incríveis.",
+    "free_plan": {
+      "title": "Free",
+      "price": "$0",
+      "description": "Para iniciantes e projetos pessoais",
+      "features": [
+        "5 briefings por mês",
+        "Templates básicos",
+        "Suporte por e-mail"
+      ],
+      "cta": "Começar Gratuitamente"
+    },
+    "pro_plan": {
+      "title": "Pro",
+      "price": "$29",
+      "description": "Para profissionais e pequenas equipes",
+      "features": [
+        "Briefings ilimitados",
+        "Templates avançados",
+        "Colaboração em equipe",
+        "Suporte prioritário"
+      ],
+      "cta": "Assinar Pro"
+    },
+    "enterprise_plan": {
+      "title": "Enterprise",
+      "price": "Custom",
+      "description": "Para grandes empresas e agências",
+      "features": [
+        "Tudo do Pro",
+        "Gerente de conta dedicado",
+        "Integrações personalizadas",
+        "SLA de suporte"
+      ],
+      "cta": "Entrar em Contato"
+    }
+  },
+  "gamification": {
+    "title": "Gamificação",
+    "subtitle": "Sua jornada e conquistas",
+    "points": "Pontos",
+    "level": "Nível",
+    "achievements": "Conquistas",
+    "pioneer_badge": "Pioneiro",
+    "five_briefings_badge": "Criador de 5 Briefings",
+    "master_badge": "Mestre dos Briefings"
+  },
+  "dashboard": {
+    "header": {
+      "brand": "BriefGen",
+      "subtitle": "Sistema de Briefings para Startups",
+      "new_briefing_button": "Novo Briefing"
+    },
+    "hero": {
+      "title": "Crie briefings estratégicos para sua startup",
+      "subtitle": "Transforme suas ideias em briefings estruturados e profissionais que impulsionam o crescimento do seu negócio.",
+      "cta": "Começar Agora"
+    },
+    "stats": {
+      "total_briefings": {
+        "title": "Total de Briefings",
+        "description": "3 novos este mês"
+      },
+      "active_clients": {
+        "title": "Clientes Ativos",
+        "description": "Startups atendidas"
+      },
+      "success_rate": {
+        "title": "Taxa de Sucesso",
+        "description": "Projetos finalizados"
+      },
+      "avg_time": {
+        "title": "Tempo Médio",
+        "description": "Para completar briefing"
+      }
+    },
+    "briefings_section": {
+      "title": "Seus Briefings",
+      "subtitle": "Gerencie e acompanhe o progresso dos seus projetos",
+      "search_placeholder": "Buscar briefings...",
+      "search_aria_label": "Buscar briefings por título ou cliente",
+      "filter_aria_label": "Filtrar briefings",
+      "no_briefings_found_title": "Nenhum briefing encontrado",
+      "no_briefings_created_title": "Nenhum briefing criado ainda",
+      "no_results_for": "Nenhum resultado para",
+      "start_creating_briefing": "Comece criando seu primeiro briefing estratégico",
+      "create_first_briefing_button": "Criar Primeiro Briefing"
+    }
+  },
+  "sales": {
+    "title": "Gestão de Vendas",
+    "subtitle": "Esta página está em desenvolvimento. Em breve, você poderá gerenciar suas vendas e assinaturas aqui."
+  }
+}

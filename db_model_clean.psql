@@ -1,0 +1,23 @@
+-- Limpeza total do banco de dados
+-- Remove todas as tabelas, tipos, funções, triggers e extensões criadas
+
+BEGIN;
+
+-- Remove tabelas em ordem reversa de dependência
+DROP TABLE IF EXISTS briefings CASCADE;
+DROP TABLE IF EXISTS user_subscriptions CASCADE;
+DROP TABLE IF EXISTS plans CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
+-- Remove tipos ENUM
+DROP TYPE IF EXISTS briefing_status CASCADE;
+DROP TYPE IF EXISTS subscription_status CASCADE;
+DROP TYPE IF EXISTS user_role CASCADE;
+
+-- Remove função de trigger
+DROP FUNCTION IF EXISTS update_updated_at_column() CASCADE;
+
+-- Remove extensão de UUID
+DROP EXTENSION IF EXISTS "pgcrypto";
+
+COMMIT;

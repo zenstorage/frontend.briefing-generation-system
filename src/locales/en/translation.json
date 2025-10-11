@@ -1,0 +1,224 @@
+{
+  "home": {
+    "header": {
+      "brand": "BriefGen",
+      "login": "Login",
+      "register": "Sign Up",
+      "pricing": "Pricing"
+    },
+    "hero": {
+      "title": "Create <1>intelligent</1> briefings",
+      "subtitle": "Transform your ideas into professional briefings with the power of AI. Save time and create more effective projects.",
+      "cta": "Get Started for Free",
+      "cta_secondary": "I already have an account",
+      "stats": {
+        "briefings": "Briefings created",
+        "companies": "Companies trust us",
+        "satisfaction": "Satisfaction"
+      },
+      "image_alt": "Professional briefing being created"
+    },
+    "features": {
+      "title": "Why choose BriefGen?",
+      "subtitle": "A complete platform to create, manage, and optimize your professional briefings",
+      "fast_creation": {
+        "title": "Fast Creation",
+        "description": "Generate professional briefings in minutes with advanced AI"
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Work as a team and share briefings easily"
+      },
+      "security": {
+        "title": "Security",
+        "description": "Your data and projects protected with encryption"
+      }
+    },
+    "benefits": {
+      "title": "Everything you need in one place",
+      "items": [
+        "Adaptable intelligent templates",
+        "Integration with popular tools",
+        "Detailed analysis and metrics",
+        "24/7 specialized support"
+      ]
+    },
+    "cta_section": {
+      "title": "Get started right now",
+      "subtitle": "Create your free account and experience the power of AI",
+      "cta": "Create Free Account",
+      "no_credit_card": "No credit card required"
+    },
+    "footer": {
+      "copyright": "© 2024 BriefGen. Creating intelligent briefings for the future."
+    }
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Log in to your account to continue creating amazing briefings",
+    "form_title": "Login",
+    "form_subtitle": "Enter your credentials to access your account",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "password_label": "Password",
+    "password_placeholder": "Enter your password",
+    "forgot_password": "Forgot your password?",
+    "login_button": "Login",
+    "loading_button": "Logging in...",
+    "no_account": "Don't have an account?",
+    "register_link": "Sign up for free",
+    "social_login": "Or continue with",
+    "google_button": "Google",
+    "twitter_button": "Twitter",
+    "toasts": {
+      "validation_error": "Validation error",
+      "login_success_title": "Login successful!",
+      "login_success_description": "Welcome back to BriefGen.",
+      "login_error_title": "Error logging in",
+      "login_error_description": "Invalid credentials. Check your email and password.",
+      "invalid_email": "Please enter a valid email.",
+      "password_required": "Password is required."
+    }
+  },
+  "register": {
+    "title": "Create your account",
+    "subtitle": "Start creating professional briefings in minutes",
+    "form_title": "Sign Up",
+    "form_subtitle": "Fill in the details below to create your free account",
+    "name_label": "Full name",
+    "name_placeholder": "Your full name",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "password_label": "Password",
+    "password_placeholder": "Create a secure password",
+    "confirm_password_label": "Confirm password",
+    "confirm_password_placeholder": "Confirm your password",
+    "passwords_do_not_match": "Passwords do not match",
+    "terms_prefix": "I accept the",
+    "terms_of_use": "terms of use",
+    "terms_conjunction": "and",
+    "privacy_policy": "privacy policy",
+    "loading_button": "Creating account...",
+    "register_button": "Create free account",
+    "has_account": "Already have an account?",
+    "login_link": "Login",
+    "social_register": "Or sign up with",
+    "google_button": "Google",
+    "twitter_button": "Twitter",
+    "privacy_disclaimer": "By signing up, you agree that your data will be processed according to our privacy policy.",
+    "toasts": {
+      "validation_error": "Validation error",
+      "terms_required_title": "Terms required",
+      "terms_required_description": "You must accept the terms of use to continue.",
+      "register_success_title": "Account created successfully!",
+      "register_success_description": "Welcome to BriefGen. Your account has been created.",
+      "register_error_title": "Error creating account",
+      "register_error_description": "An error occurred while creating your account. Please try again.",
+      "name_min_length": "Name must be at least 3 characters long.",
+      "invalid_email": "Please enter a valid email.",
+      "password_min_length": "Password must be at least 6 characters long.",
+      "passwords_do_not_match": "Passwords do not match."
+    }
+  },
+  "admin_login": {
+    "title": "Administrator Access",
+    "subtitle": "Enter your administrator credentials",
+    "form_title": "Administrator Login",
+    "form_subtitle": "Enter your credentials to access the panel"
+  },
+  "pricing": {
+    "title": "Plans and Pricing",
+    "subtitle": "Choose the plan that best suits your needs and start creating amazing briefings.",
+    "free_plan": {
+      "title": "Free",
+      "price": "$0",
+      "description": "For beginners and personal projects",
+      "features": [
+        "5 briefings per month",
+        "Basic templates",
+        "Email support"
+      ],
+      "cta": "Get Started for Free"
+    },
+    "pro_plan": {
+      "title": "Pro",
+      "price": "$29",
+      "description": "For professionals and small teams",
+      "features": [
+        "Unlimited briefings",
+        "Advanced templates",
+        "Team collaboration",
+        "Priority support"
+      ],
+      "cta": "Subscribe to Pro"
+    },
+    "enterprise_plan": {
+      "title": "Enterprise",
+      "price": "Custom",
+      "description": "For large companies and agencies",
+      "features": [
+        "Everything from Pro",
+        "Dedicated account manager",
+        "Custom integrations",
+        "Support SLA"
+      ],
+      "cta": "Contact Us"
+    }
+  },
+  "gamification": {
+    "title": "Gamification",
+    "subtitle": "Your journey and achievements",
+    "points": "Points",
+    "level": "Level",
+    "achievements": "Achievements",
+    "pioneer_badge": "Pioneer",
+    "five_briefings_badge": "Creator of 5 Briefings",
+    "master_badge": "Master of Briefings"
+  },
+  "dashboard": {
+    "header": {
+      "brand": "BriefGen",
+      "subtitle": "Briefing System for Startups",
+      "new_briefing_button": "New Briefing"
+    },
+    "hero": {
+      "title": "Create strategic briefings for your startup",
+      "subtitle": "Transform your ideas into structured and professional briefings that drive your business growth.",
+      "cta": "Get Started Now"
+    },
+    "stats": {
+      "total_briefings": {
+        "title": "Total Briefings",
+        "description": "3 new this month"
+      },
+      "active_clients": {
+        "title": "Active Clients",
+        "description": "Startups served"
+      },
+      "success_rate": {
+        "title": "Success Rate",
+        "description": "Finished projects"
+      },
+      "avg_time": {
+        "title": "Average Time",
+        "description": "To complete a briefing"
+      }
+    },
+    "briefings_section": {
+      "title": "Your Briefings",
+      "subtitle": "Manage and track the progress of your projects",
+      "search_placeholder": "Search briefings...",
+      "search_aria_label": "Search briefings by title or client",
+      "filter_aria_label": "Filter briefings",
+      "no_briefings_found_title": "No briefings found",
+      "no_briefings_created_title": "No briefings created yet",
+      "no_results_for": "No results for",
+      "start_creating_briefing": "Start by creating your first strategic briefing",
+      "create_first_briefing_button": "Create First Briefing"
+    }
+  },
+  "sales": {
+    "title": "Sales Management",
+    "subtitle": "This page is under development. Soon, you will be able to manage your sales and subscriptions here."
+  }
+}
