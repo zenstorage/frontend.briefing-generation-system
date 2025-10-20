@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeft, ArrowRight, CheckCircle, Lightbulb, Target, Users } from "lucide-react";
 import { BriefingResult } from "./BriefingResult";
 import { Stepper } from "./Stepper";
+import { API_ENDPOINT } from "@/App";
 
 interface BriefingGeneratorProps {
   onBack: () => void;
@@ -122,7 +123,7 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
 
       const token = localStorage.getItem("token")
 
-      const res = await fetch("http://localhost:3000/api/briefings", {
+      const res = await fetch(`${API_ENDPOINT}/api/briefings`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 import { z } from "zod";
 import { useTranslation } from "react-i18next";
+import { API_ENDPOINT } from "@/App";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -46,7 +47,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/login", formData);
+      const res = await axios.post(`${API_ENDPOINT}/login`, formData);
       localStorage.setItem("token", res.data.token)
 
       toast({

@@ -15,17 +15,19 @@ export const BriefingResult = ({ briefingContent, onBack, onNewBriefing }: Brief
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownload = async () => {
+
     setIsLoading(true);
     try {
-      const blob = new Blob([briefingContent], { type: 'text/markdown' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'briefing-startup.md';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      print();
+      // const blob = new Blob([briefingContent], { type: 'text/markdown' });
+      // const url = URL.createObjectURL(blob);
+      // const a = document.createElement('a');
+      // a.href = url;
+      // a.download = 'briefing-startup.md';
+      // document.body.appendChild(a);
+      // a.click();
+      // document.body.removeChild(a);
+      // URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error downloading briefing:", error);
     } finally {
@@ -146,7 +148,7 @@ export const BriefingResult = ({ briefingContent, onBack, onNewBriefing }: Brief
                 ),
               }}
             >
-              { }
+              {briefingContent}
             </ReactMarkdown>
           </div>
         </CardContent>

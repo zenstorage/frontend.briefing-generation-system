@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 import { z } from "zod";
 import { useTranslation } from "react-i18next";
+import { API_ENDPOINT } from "@/App";
 
 const Register = () => {
   const { t } = useTranslation();
@@ -65,7 +66,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/register", {
+      const res = await axios.post(`${API_ENDPOINT}/register`, {
         name: formData.name,
         email: formData.email,
         password: formData.password,

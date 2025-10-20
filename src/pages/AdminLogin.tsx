@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 import { z } from "zod";
 import { useTranslation } from "react-i18next";
+import { API_ENDPOINT } from "@/App";
 
 const AdminLogin = () => {
   const { t } = useTranslation();
@@ -46,7 +47,7 @@ const AdminLogin = () => {
     setIsLoading(true);
 
     try {
-      await axios.post("http://localhost:3000/admin/login", formData);
+      await axios.post(`${API_ENDPOINT}/admin/login`, formData);
 
       toast({
         title: t("login.toasts.login_success_title"),

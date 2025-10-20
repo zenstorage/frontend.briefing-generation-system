@@ -25,6 +25,7 @@ import heroImage from "@/assets/hero-briefing.jpg";
 
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
+import { API_ENDPOINT } from "@/App";
 
 interface Briefing {
   id: string;
@@ -48,7 +49,7 @@ export const Dashboard = () => {
     const fetchBriefings = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/api/briefings", {
+        const response = await fetch(`${API_ENDPOINT}/api/briefings`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
           }
