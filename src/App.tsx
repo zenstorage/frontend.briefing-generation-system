@@ -16,10 +16,11 @@ import Pricing from "./pages/Pricing";
 
 // config();
 
+
 // export const API_ENDPOINT = process.env.API_ENDPOINT;
 
 // export const API_ENDPOINT="http://localhost:3000"
-export const API_ENDPOINT = "http://206.42.50.24:3000";
+export const API_ENDPOINT = process?.env?.API_ENDPOINT || "http://206.42.50.24:3000";
 
 const queryClient = new QueryClient();
 
