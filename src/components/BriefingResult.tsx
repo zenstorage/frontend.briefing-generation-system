@@ -6,33 +6,18 @@ import ReactMarkdown from "react-markdown";
 import { toast } from "@/components/ui/use-toast";
 
 interface BriefingResultProps {
-  briefingData: any;
+  briefingContent: string;
   onBack: () => void;
   onNewBriefing: () => void;
 }
 
-export const BriefingResult = ({ briefingData, onBack, onNewBriefing }: BriefingResultProps) => {
+export const BriefingResult = ({ briefingContent, onBack, onNewBriefing }: BriefingResultProps) => {
   const [isLoading, setIsLoading] = useState(false);
-
-  const getBriefingContent = () => {
-    try {
-      if (briefingData?.candidates?.[0]?.content?.parts?.[0]?.text) {
-        const textContent = briefingData.candidates[0].content.parts[0].text;
-        const parsedContent = JSON.parse(textContent);
-        return parsedContent.briefing || textContent;
-      }
-      return "Erro ao processar o briefing gerado.";
-    } catch (error) {
-      console.error("Error parsing briefing content:", error);
-      return "Erro ao processar o briefing gerado.";
-    }
-  };
 
   const handleDownload = async () => {
     setIsLoading(true);
     try {
-      const content = getBriefingContent();
-      const blob = new Blob([content], { type: 'text/markdown' });
+      const blob = new Blob([briefingContent], { type: 'text/markdown' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -53,14 +38,14 @@ export const BriefingResult = ({ briefingData, onBack, onNewBriefing }: Briefing
       try {
         await navigator.share({
           title: 'Briefing da Startup',
-          text: getBriefingContent(),
+          text: briefingContent,
         });
       } catch (error) {
         console.error("Error sharing:", error);
       }
     } else {
       try {
-        await navigator.clipboard.writeText(getBriefingContent());
+        await navigator.clipboard.writeText(briefingContent);
         toast({
           title: "Briefing copiado!",
           description: "O briefing foi copiado para a área de transferência.",
@@ -161,7 +146,7 @@ export const BriefingResult = ({ briefingData, onBack, onNewBriefing }: Briefing
                 ),
               }}
             >
-              {getBriefingContent()}
+              { }
             </ReactMarkdown>
           </div>
         </CardContent>

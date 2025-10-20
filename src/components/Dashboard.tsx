@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { BriefingCard } from "./BriefingCard";
+import { BriefingResult } from "./BriefingResult";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 import {
@@ -16,49 +18,84 @@ import {
   Users,
   Clock,
   BarChart3,
-  Award
+  Award,
+  CloudCog
 } from "lucide-react";
 import heroImage from "@/assets/hero-briefing.jpg";
 
 import { useTranslation } from "react-i18next";
+import Markdown from "react-markdown";
 
-const mockBriefings = [
-  {
-    id: "1",
-    title: "Campanha de Lançamento - FinApp",
-    description: "Estratégia de marketing digital para lançamento de aplicativo financeiro voltado para pequenos empreendedores.",
-    status: "completed" as const,
-    createdAt: "15 Jan 2024",
-    clientName: "FinTech Solutions",
-  },
-  {
-    id: "2",
-    title: "Rebranding - EduTech Platform",
-    description: "Renovação completa da identidade visual e posicionamento de marca para plataforma educacional.",
-    status: "in-progress" as const,
-    createdAt: "18 Jan 2024",
-    clientName: "EduInova",
-  },
-  {
-    id: "3",
-    title: "Campanha de Acquisition - HealthApp",
-    description: "Estratégia de aquisição de usuários para aplicativo de saúde e bem-estar.",
-    status: "draft" as const,
-    createdAt: "20 Jan 2024",
-    clientName: "HealthTech Corp",
-  },
-];
+interface Briefing {
+  id: string;
+  title: string;
+  description: string;
+  status: "draft" | "completed" | "in-progress";
+  createdAt: string;
+  clientName: string;
+  briefingResult?: any;
+}
 
 export const Dashboard = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const [briefings, setBriefings] = useState<Briefing[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedBriefing, setSelectedBriefing] = useState<Briefing | null>(null);
 
-  const filteredBriefings = mockBriefings.filter(briefing =>
-    briefing.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    briefing.clientName.toLowerCase().includes(searchTerm.toLowerCase())
+  useEffect(() => {
+    const fetchBriefings = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("http://localhost:3000/api/briefings", {
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+          }
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+          console.error("Fetched data is not an array:", data);
+          setBriefings([]);
+          return;
+        }
+        const formattedBriefings = data.map((briefing: any) => ({
+          id: briefing.id,
+          title: briefing.briefing_result.briefing_short_title ?? 'Untitled Briefing',
+          description: (briefing.briefing_result?.briefing?.substring(0, 100) ?? 'No description available') + "...",
+          status: "completed" as const,
+          createdAt: new Date(briefing.created_at).toLocaleDateString(),
+          clientName: briefing.company_name ?? 'Unknown Client',
+          briefingResult: briefing.briefing_result,
+        }));
+        setBriefings(formattedBriefings);
+      } catch (error) {
+        console.error("Error fetching briefings:", error);
+        setBriefings([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBriefings();
+  }, []);
+
+  const filteredBriefings = briefings.filter(briefing =>
+    (briefing.title?.toLowerCase() ?? '').includes(searchTerm.toLowerCase()) ||
+    (briefing.clientName?.toLowerCase() ?? '').includes(searchTerm.toLowerCase())
   );
 
+  const handleBriefingClick = (briefing: Briefing) => {
+    console.log("Briefing clicked:", briefing);
+    setSelectedBriefing(briefing);
+  };
+
+  const handleBack = () => {
+    setSelectedBriefing(null);
+  };
   
 
   const stats = [
@@ -91,6 +128,17 @@ export const Dashboard = () => {
       trend: "-8%",
     },
   ];
+
+  if (selectedBriefing) {
+    console.log(selectedBriefing.briefingResult.briefing)
+    return (
+      <BriefingResult
+        briefingContent={selectedBriefing.briefingResult.briefing.replaceAll("\\n", "\n")}
+        onBack={handleBack}
+        onNewBriefing={() => navigate("/dashboard/new")}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
@@ -186,6 +234,7 @@ export const Dashboard = () => {
         </section>
 
         {/* Gamification Section */}
+        {/*
         <section className="space-y-6">
           <div>
             <h2 className="text-2xl font-bold">{t("gamification.title")}</h2>
@@ -225,7 +274,7 @@ export const Dashboard = () => {
               </div>
             </CardContent>
           </Card>
-        </section>
+        </section>*/}
 
         {/* Briefings Section */}
         <section className="space-y-6">
@@ -254,7 +303,22 @@ export const Dashboard = () => {
             </div>
           </div>
 
-          {filteredBriefings.length === 0 ? (
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(3)].map((_, i) => (
+                <Card key={i}>
+                  <CardContent className="p-6">
+                    <Skeleton className="h-4 w-3/4 mb-2" />
+                    <Skeleton className="h-3 w-full mb-4" />
+                    <div className="flex items-center justify-between">
+                      <Skeleton className="h-4 w-1/4" />
+                      <Skeleton className="h-4 w-1/4" />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : filteredBriefings.length === 0 ? (
             <Card className="py-12">
               <CardContent className="text-center">
                 <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
@@ -284,10 +348,7 @@ export const Dashboard = () => {
                 <BriefingCard
                   key={briefing.id}
                   {...briefing}
-                  onClick={() => {
-                    // Aqui você implementaria a navegação para o briefing específico
-                    console.log("Opening briefing:", briefing.id);
-                  }}
+                  onClick={() => handleBriefingClick(briefing)}
                 />
               ))}
             </div>

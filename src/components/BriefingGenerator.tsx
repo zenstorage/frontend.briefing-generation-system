@@ -15,9 +15,9 @@ interface BriefingGeneratorProps {
 }
 
 interface BriefingData {
-  companyName: string;
+  company_name: string;
   industry: string;
-  targetAudience: string;
+  target_audience: string;
   problem: string;
   solution: string;
   objectives: string;
@@ -57,14 +57,14 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
   const [generatedBriefing, setGeneratedBriefing] = useState<any>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [briefingData, setBriefingData] = useState<BriefingData>({
-    companyName: "",
-    industry: "",
-    targetAudience: "",
-    problem: "",
-    solution: "",
-    objectives: "",
-    timeline: "",
-    budget: "",
+  company_name: "",
+  industry: "",
+  target_audience: "",
+  problem: "",
+  solution: "",
+  objectives: "",
+  timeline: "",
+  budget: ""
   });
 
   useEffect(() => {
@@ -88,9 +88,9 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
   const validateCurrentStep = () => {
     switch (currentStep) {
       case 1:
-        return briefingData.companyName.trim() !== "" && 
+        return briefingData.company_name.trim() !== "" && 
                briefingData.industry !== "" && 
-               briefingData.targetAudience.trim() !== "";
+               briefingData.target_audience.trim() !== "";
       case 2:
         return briefingData.problem.trim() !== "" && 
                briefingData.solution.trim() !== "";
@@ -122,7 +122,7 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
 
       const token = localStorage.getItem("token")
 
-      const res = await fetch("http://localhost:3000/api/briefing", {
+      const res = await fetch("http://localhost:3000/api/briefings", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -152,9 +152,9 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
     setGeneratedBriefing(null);
     updateStep(1);
     setBriefingData({
-      companyName: "",
+      company_name: "",
       industry: "",
-      targetAudience: "",
+      target_audience: "",
       problem: "",
       solution: "",
       objectives: "",
@@ -173,8 +173,8 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
               <Input
                 id="companyName"
                 placeholder="Ex: TechInova"
-                value={briefingData.companyName}
-                onChange={(e) => updateData("companyName", e.target.value)}
+                value={briefingData.company_name}
+                onChange={(e) => updateData("company_name", e.target.value)}
                 required
                 aria-describedby="companyName-help"
               />
@@ -209,8 +209,8 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
               <Textarea
                 id="targetAudience"
                 placeholder="Ex: Pequenos empreendedores entre 25-45 anos que buscam soluções financeiras digitais..."
-                value={briefingData.targetAudience}
-                onChange={(e) => updateData("targetAudience", e.target.value)}
+                value={briefingData.target_audience}
+                onChange={(e) => updateData("target_audience", e.target.value)}
                 rows={3}
                 required
                 aria-describedby="targetAudience-help"
@@ -320,9 +320,23 @@ export const BriefingGenerator = ({ onBack }: BriefingGeneratorProps) => {
   };
 
   if (showResult && generatedBriefing) {
+    const getBriefingContent = () => {
+      try {
+        if (generatedBriefing?.candidates?.[0]?.content?.parts?.[0]?.text) {
+          const textContent = generatedBriefing.candidates[0].content.parts[0].text;
+          const parsedContent = JSON.parse(textContent);
+          return parsedContent.briefing || textContent;
+        }
+        return "Erro ao processar o briefing gerado.";
+      } catch (error) {
+        console.error("Error parsing briefing content:", error);
+        return "Erro ao processar o briefing gerado.";
+      }
+    };
+
     return (
       <BriefingResult 
-        briefingData={generatedBriefing}
+        briefingContent={getBriefingContent()}
         onBack={() => navigate("/dashboard")}
         onNewBriefing={handleNewBriefing}
       />
