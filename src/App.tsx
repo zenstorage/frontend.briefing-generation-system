@@ -20,8 +20,8 @@ import Pricing from "./pages/Pricing";
 // export const API_ENDPOINT = process.env.API_ENDPOINT;
 
 // export const API_ENDPOINT="http://localhost:3000"
-// export const API_ENDPOINT = "http://206.42.50.24:3000";
-export const API_ENDPOINT = "https://ignite-briefs-cu7bxjyce-zenstorages-projects.vercel.app";
+export const API_ENDPOINT = "http://206.42.50.24:3000";
+// export const API_ENDPOINT = "https://ignite-briefs-cu7bxjyce-zenstorages-projects.vercel.app";
 
 const queryClient = new QueryClient();
 
